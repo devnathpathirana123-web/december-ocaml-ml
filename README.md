@@ -24,11 +24,15 @@ After December, cover time-series forecasting and Monte Carlo risk, cointegratio
 
 ## Run the included moving-average backtest
 
-From the directory containing the script, use Python 3.10 or newer. No packages are required.
+Use Python 3.10 or newer. No Python packages are required. On macOS, paste these lines into Terminal to clone the project and run the script from anywhere:
 
 ```sh
-python3 moving_average_backtest.py --cache sp500tr.json --end 2026-11-21 --cost-bps 5
+mkdir -p "$HOME/Documents"
+git clone https://github.com/devnathpathirana123-web/december-ocaml-ml.git "$HOME/Documents/december-ocaml-ml"
+python3 "$HOME/Documents/december-ocaml-ml/moving_average_backtest.py" --cache "$HOME/Documents/december-ocaml-ml/sp500tr.json" --end 2026-11-21 --cost-bps 5
 ```
+
+If you already cloned the repository, skip the clone step. If your clone is in a different folder, use its full path in the Python command. A `can't open file` error means Python could not find the script at the given path.
 
 The first run downloads S&P 500 total-return history from Yahoo Finance. Later runs can reuse the cache. The end date is exclusive. Open the generated `moving_average_backtest.html` in your browser to see growth of 100 and peak-to-trough drawdowns. Use `--help` for options.
 
